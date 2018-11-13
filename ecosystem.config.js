@@ -12,7 +12,7 @@ module.exports = {
             ref: 'origin/master',
             repo: 'git@github.com:dnialwill/tempollo_api.git',
             path: '/home/ubuntu/tempollo_api',
-            'post-deploy': 'npm install && pm2 startOrRestart ecosystem.config.js'
+            'post-deploy': 'npm install && pm2 startOrRestart ecosystem.config.js && pm2 save'
         }
     }
 };
