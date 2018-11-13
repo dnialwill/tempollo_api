@@ -2,7 +2,7 @@ module.exports = {
     apps: [{
         name: 'tempollo_api',
         script: 'npm',
-        args: 'start'
+        args: 'run start'
     }],
     deploy: {
         production: {
