@@ -22,9 +22,8 @@
   "scripts": {
     "prestart": "npm run build",
     "start": "node dist/app.js",
-    "prebuild": "npm install && npm run test || echo '\r\nTests failed!' && npx rimraf dist",
+    "prebuild": "npm run test || echo '\r\nTests failed!' && npx rimraf dist",
     "build": "npx tsc",
-    "preinstall": "git pull -f origin master",
     "lint": "npx tslint -c ./tslint.json --project ./tsconfig.json --format stylish",
     "pretest": "npx rimraf tests",
     "test": "npx jest"
