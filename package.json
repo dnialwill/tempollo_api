@@ -1,0 +1,45 @@
+{
+  "name": "tempollo_api",
+  "version": "0.0.1",
+  "description": "Tempollo Web API",
+  "main": "dist/app.js",
+  "dependencies": {
+    "koa": "^2.6.2",
+    "koa-router": "^7.4.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.9",
+    "@types/koa": "^2.0.46",
+    "@types/koa-router": "^7.0.33",
+    "jest": "^23.6.0",
+    "jest-json-reporter": "^1.2.2",
+    "rimraf": "^2.6.2",
+    "ts-jest": "^23.10.4",
+    "tslint": "^5.11.0",
+    "typescript": "^3.1.6",
+    "typestrict": "^1.0.1"
+  },
+  "scripts": {
+    "prestart": "npm run build",
+    "start": "node dist/app.js",
+    "prebuild": "npm install && npm run test || echo '\r\nTests failed!' && npx rimraf dist",
+    "build": "npx tsc",
+    "preinstall": "git pull -f origin master",
+    "lint": "npx tslint -c ./tslint.json --project ./tsconfig.json --format stylish",
+    "pretest": "npx rimraf tests",
+    "test": "npx jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dnialwill/tempollo_api.git"
+  },
+  "author": "dnialwill",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dnialwill/tempollo_api/issues"
+  },
+  "homepage": "https://github.com/dnialwill/tempollo_api#readme",
+  "jestJsonReporter": {
+    "outputFile": "tests/results.json"
+  }
+}
