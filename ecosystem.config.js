@@ -2,9 +2,9 @@ require('dotenv').config();
 
 module.exports = {
     apps: [{
-        name: process.env.APP_NAME,
-        script: process.env.APP_RUN_SCRIPT,
-        args: process.env.APP_RUN_SCRIPT_ARGS
+        name: 'tempollo_api',
+        script: 'npm',
+        args: 'start'
     }],
     deploy: {
         production: {
