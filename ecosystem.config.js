@@ -1,18 +1,20 @@
+require('dotenv').config();
+
 module.exports = {
     apps: [{
-        name: 'tempollo_api',
-        script: 'npm',
-        args: 'run start'
+        name: process.env.APP_NAME,
+        script: process.env.APP_RUN_SCRIPT,
+        args: process.env.APP_RUN_SCRIPT_ARGS
     }],
     deploy: {
         production: {
-            user: 'ubuntu',
-            host: 'ec2-18-204-203-52.compute-1.amazonaws.com',
-            key: '~/.ssh/administrator-key-pair-useast1.pem',
-            ref: 'origin/master',
-            repo: 'git@github.com:dnialwill/tempollo_api.git',
-            path: '/home/ubuntu/tempollo_api',
-            'post-deploy': 'npm install && pm2 startOrRestart ecosystem.config.js && pm2 save'
+            user: process.env.DEPLOY_PRODUCTION_USER,
+            host: process.env.DEPLOY_PRODUCTION_HOST,
+            key: process.env.DEPLOY_PRODUCTION_SSH_KEYFILE_PATH,
+            ref: `${process.env.DEPLOY_PRODUCTION_GIT_REMOTE}/${process.env.DEPLOY_PRODUCTION_GIT_BRANCH}`,
+            repo: process.env.DEPLOY_PRODUCTION_GIT_REPO,
+            path: process.env.DEPLOY_PRODUCTION_DEST_PATH,
+            'post-deploy': 'npm install --production && pm2 startOrRestart ecosystem.config.js && pm2 save'
         }
     }
 };
