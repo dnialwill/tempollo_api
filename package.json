@@ -27,7 +27,8 @@
     "build": "npx tsc",
     "prestart": "node -r dotenv/config dist/app.js || npm run build",
     "start": "node -r dotenv/config dist/app.js",
-    "prepm2-deploy": "pm2 deploy ecosystem.config.js production setup",
+    "pm2-deploy-setup": "pm2 deploy ecosystem.config.js production setup",
+    "postpm2-deploy-setup": "npm run pm2-deploy",
     "pm2-deploy": "pm2 deploy ecosystem.config.js production",
     "lint": "npx tslint -c ./tslint.json --project ./tsconfig.json --format stylish"
   },
